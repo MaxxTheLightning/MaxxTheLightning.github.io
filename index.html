@@ -1,81 +1,139 @@
-<!-- Made by MaxxTheLightning, 2025 -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="Scripts/Login/style.css">
-    <link rel="website icon" type="png" href="Images/Icon03.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Фронтенд-разработчик — MaxxTheLightning</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #603175, #8516b9);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.6rem;
+      background-color: #00bcd4;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      background-color: #0097a7;
+    }
+
+    section {
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .socials {
+      margin-top: 2rem;
+    }
+
+    .socials a {
+      margin: 0 0.6rem;
+      color: #00bcd4;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+      text-decoration: none;
+    }
+
+    .socials a:hover {
+      color: #fff;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
 </head>
 <body>
-    <script src="Scripts/Login/script.js"></script>
-    <div class="background-messages">
-        <div class="message-from-other" style="top: 5%; left: 5%; transform: rotate(-15deg);">Hello! How are you?</div>
-        <div class="message-from-me" style="top: 10%; left: 15%; transform: rotate(10deg);">Where are you?</div>
-        <div class="message-from-other" style="top: 15%; left: 25%; transform: rotate(-5deg);">Look at this!</div>
-        <div class="message-from-other" style="top: 20%; left: 35%; transform: rotate(15deg);">Are you coming?</div>
-        <div class="message" style="top: 25%; left: 45%; transform: rotate(-10deg);">Miss you!</div>
-        <div class="message" style="top: 30%; left: 55%; transform: rotate(8deg);">What's up?</div>
-        <div class="message-from-other" style="top: 35%; left: 65%; transform: rotate(-12deg);">Don’t forget the meeting</div>
-        <div class="message-from-other" style="top: 40%; left: 75%; transform: rotate(20deg);">Call me back!</div>
-        <div class="message-from-other" style="top: 45%; left: 85%; transform: rotate(-7deg);">Did you see this?</div>
-        <div class="message-from-other" style="top: 50%; left: 15%; transform: rotate(5deg);">How's it going?</div>
-        <div class="message" style="top: 55%; left: 25%; transform: rotate(12deg);">Check this out!</div>
-        <div class="message" style="top: 60%; left: 35%; transform: rotate(-15deg);">Just arrived!</div>
-        <div class="message" style="top: 65%; left: 45%; transform: rotate(7deg);">Heading home soon.</div>
-        <div class="message-from-other" style="top: 70%; left: 55%; transform: rotate(-8deg);">See you tomorrow!</div>
-        <div class="message" style="top: 75%; left: 65%; transform: rotate(18deg);">Let's grab lunch</div>
-        <div class="message-from-other" style="top: 80%; left: 75%; transform: rotate(-20deg);">Meeting delayed.</div>
-        <div class="message-from-other" style="top: 85%; left: 25%; transform: rotate(13deg);">Call when free.</div>
-        <div class="message-from-other" style="top: 90%; left: 35%; transform: rotate(-6deg);">Awesome!</div>
-        <div class="message" style="top: 5%; left: 45%; transform: rotate(5deg);">On my way.</div>
-        <div class="message-from-other" style="top: 10%; left: 55%; transform: rotate(-10deg);">Let's do it!</div>
-        <div class="message-from-other" style="top: 20%; left: 65%; transform: rotate(7deg);">Happy birthday!</div>
-        <div class="message" style="top: 23%; left: 75%; transform: rotate(-12deg);">Congratulations!</div>
-        <div class="message-from-other" style="top: 25%; left: 5%; transform: rotate(3deg);">What time?</div>
-        <div class="message" style="top: 35%; left: 25%; transform: rotate(14deg);">Let’s chat soon.</div>
-        <div class="message" style="top: 60%; left: 75%; transform: rotate(-3deg);">Back soon.</div>
-        <div class="message" style="top: 65%; left: 85%; transform: rotate(15deg);">How’s it going?</div>
-        <div class="message" style="top: 65%; left: 10%; transform: rotate(-13deg);">Just sent it!</div>
-        <div class="message" style="top: 75%; left: 30%; transform: rotate(-16deg);">Great news!</div>
-        <div class="message" style="top: 82%; left: 42%; transform: rotate(4deg);">Let’s catch up.</div>
-        <div class="message" style="top: 90%; left: 50%; transform: rotate(-8deg);">See you later.</div>
-        <div class="message" style="top: 5%; left: 60%; transform: rotate(17deg);">Getting lunch.</div>
-        <div class="message" style="top: 10%; left: 70%; transform: rotate(-7deg);">Missed you!</div>
-        <div class="message" style="top: 15%; left: 80%; transform: rotate(10deg);">Just finished!</div>
-        <div class="message" style="top: 20%; left: 90%; transform: rotate(-5deg);">Check inbox.</div>
-        <div class="message" style="top: 30%; left: 15%; transform: rotate(-9deg);">See you soon.</div>
-        <div class="message" style="top: 40%; left: 35%; transform: rotate(-3deg);">Running late.</div>
-        <div class="message" style="top: 45%; left: 45%; transform: rotate(11deg);">Heading out now.</div>
-        <div class="message" style="top: 50%; left: 55%; transform: rotate(-7deg);">Sent the docs.</div>
-        <div class="message-from-other" style="top: 55%; left: 65%; transform: rotate(6deg);">Excited for this!</div>
-        <div class="message-from-other" style="top: 70%; left: 5%; transform: rotate(-12deg);">Got it!</div>
-        <div class="message" style="top: 75%; left: 15%; transform: rotate(5deg);">Finishing up now.</div>
-    </div>
 
-    <div class="ring">
-        <i></i>
-        <i></i>
-        <i></i>
-        <div class="login">
-            <h2>Login To Bubble</h2>
-            <div class="inputBx">
-                <input type="text" placeholder="Username" id="username_place">
-            </div>
-            <div class="inputBx">
-                <input type="password" placeholder="Password" id="password">
-            </div>
-            <div class="inputBx">
-                <input type="text" placeholder="IP-Address" id="ip-address">
-            </div>
-            <div class="inputBx">
-                <input type="submit" onclick="login()" value="Connect">
-            </div>
-            <div class="links">
-                <a href="https://drive.google.com/uc?export=download&id=1zQwUlQYueZQTAoSsX2bBNnjxx_P-BGQX">Start server</a>
-                <a href="Signup.html">Sign Up</a>
-            </div>
-        </div>
+  <header>
+    <h1>MaxxTheLightning</h1>
+    <p>Фронтенд-разработчик • HTML • CSS • JavaScript</p>
+    <a href="#contact" class="btn">Связаться со мной</a>
+  </header>
+
+  <section>
+    <h2>Обо мне</h2>
+    <p style="margin-top: 1rem;">
+      Привет! Я фронтенд-разработчик с опытом создания адаптивных, быстрых и доступных веб-интерфейсов. Люблю чистый код, современные технологии и UI/UX-дизайн.
+    </p>
+
+    <div class="socials">
+      <a href="https://github.com/MaxxTheLightning" target="_blank" title="GitHub">🐱</a>
+      <a href="https://t.me/MaxxTheLightning" target="_blank" title="Telegram">📱</a>
+      <a href="mailto:maksim.kryukov2009@gmail.com" title="Email">✉️</a>
     </div>
+  </section>
+
+  <section id="contact" style="margin-top: 3rem;">
+    <h2>Связаться со мной</h2>
+    <form id="contactForm" style="margin-top: 1rem;">
+      <input type="text" id="name" placeholder="Ваше имя" required style="padding: 0.7rem; border: none; border-radius: 6px; margin: 0.3rem;">
+      <input type="email" id="email" placeholder="Email" required style="padding: 0.7rem; border: none; border-radius: 6px; margin: 0.3rem;">
+      <button type="submit" class="btn">Отправить</button>
+    </form>
+    <p id="message" style="margin-top: 1rem;"></p>
+  </section>
+
+  <footer>
+    &copy; 2025 MaxxTheLightning. Все права защищены.
+  </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const msg = document.getElementById('message');
+
+      if (name && email) {
+        msg.style.color = '#0f0';
+        msg.textContent = `Спасибо, ${name}! Я свяжусь с вами по ${email}.`;
+        this.reset();
+      } else {
+        msg.style.color = 'red';
+        msg.textContent = 'Пожалуйста, заполните все поля.';
+      }
+    });
+  </script>
 </body>
 </html>
