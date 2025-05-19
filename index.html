@@ -1,139 +1,88 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Фронтенд-разработчик — MaxxTheLightning</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxxTheLightning - Фронтенд разработчик</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #292929;
+}
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #0f2027, #603175, #8516b9);
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
+header {
+    background: #35424a;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
 
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
+h1 {
+    margin: 0;
+}
 
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-    }
+section {
+    padding: 20px;
+    margin: 10px;
+    background: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-    header p {
-      font-size: 1.2rem;
-      color: #ccc;
-    }
+h2 {
+    color: #35424a;
+}
 
-    .btn {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.8rem 1.6rem;
-      background-color: #00bcd4;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background-color 0.3s;
-      font-size: 1rem;
-    }
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #35424a;
+    color: #ffffff;
+}
 
-    .btn:hover {
-      background-color: #0097a7;
-    }
-
-    section {
-      max-width: 800px;
-      text-align: center;
-    }
-
-    .socials {
-      margin-top: 2rem;
-    }
-
-    .socials a {
-      margin: 0 0.6rem;
-      color: #00bcd4;
-      font-size: 1.5rem;
-      transition: color 0.3s;
-      text-decoration: none;
-    }
-
-    .socials a:hover {
-      color: #fff;
-    }
-
-    footer {
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #888;
-    }
-  </style>
+a {
+    color: #a249a3;
+}
+</style>
 </head>
 <body>
+    <header>
+        <h1>MaxxTheLightning</h1>
+        <p>Фронтенд разработчик сайтов.</p>
+    </header>
 
-  <header>
-    <h1>MaxxTheLightning</h1>
-    <p>Фронтенд-разработчик • HTML • CSS • JavaScript</p>
-    <a href="#contact" class="btn">Связаться со мной</a>
-  </header>
+    <section id="about">
+        <h2>Обо мне</h2>
+        <p>Я Максим Крюков (в сети под никнеймом MaxxTheLightning), мне 15 лет, я из Санкт-Петербурга и я занимаюсь дизайном и разработкой сайтов. Увлекаюсь 3D-дизайном и программированием игр в Unity на C#.</p>
+    </section>
 
-  <section>
-    <h2>Обо мне</h2>
-    <p style="margin-top: 1rem;">
-      Привет! Я фронтенд-разработчик с опытом создания адаптивных, быстрых и доступных веб-интерфейсов. Люблю чистый код, современные технологии и UI/UX-дизайн.
-    </p>
+    <section id="services">
+        <h2>Мои услуги</h2>
+        <p>Я предлагаю услуги по созданию сайтов разных типов без размещения на хостингах. Цена работы зависит от сложности сайта и количества страниц. Чтобы узнать более подробную информацию, свяжитесь со мной любым удобным способом.</p>
+    </section>
 
-    <div class="socials">
-      <a href="https://github.com/MaxxTheLightning" target="_blank" title="GitHub">🐱</a>
-      <a href="https://t.me/MaxxTheLightning" target="_blank" title="Telegram">📱</a>
-      <a href="mailto:maksim.kryukov2009@gmail.com" title="Email">✉️</a>
-    </div>
-  </section>
+    <section id="skills">
+        <h2>Навыки</h2>
+        <p>HTML • CSS • JS • C# • Python</p>
+    </section>
 
-  <section id="contact" style="margin-top: 3rem;">
-    <h2>Связаться со мной</h2>
-    <form id="contactForm" style="margin-top: 1rem;">
-      <input type="text" id="name" placeholder="Ваше имя" required style="padding: 0.7rem; border: none; border-radius: 6px; margin: 0.3rem;">
-      <input type="email" id="email" placeholder="Email" required style="padding: 0.7rem; border: none; border-radius: 6px; margin: 0.3rem;">
-      <button type="submit" class="btn">Отправить</button>
-    </form>
-    <p id="message" style="margin-top: 1rem;"></p>
-  </section>
+    <section id="projects">
+        <h2>Мои проекты</h2>
+        <p>Сейчас я занимаюсь разработкой TCP-мессенджера «<a href="bubble-messenger.github.io">Bubble</a>» с сервером на C# и клиентской частью в браузере. Пользователи смогут запускать свои сервера и таким образом создавать собственные независимые "сегменты", где можно будет безопасно общаться.</p>
+    </section>
 
-  <footer>
-    &copy; 2025 MaxxTheLightning. Все права защищены.
-  </footer>
+    <section id="contact">
+        <h2>Свяжитесь со мной</h2>
+        <p>Telegram: <a href="https://t.me/MaxxTheLightning">https://t.me/MaxxTheLightning</a></p>
+        <p>Email: <a href="mailto:MaxxTheLightning@proton.me">MaxxTheLightning@proton.me</a></p>
+        <p>Мой GitHub: <a href="https://github.com/MaxxTheLightning">https://github.com/MaxxTheLightning</a></p>
+    </section>
 
-  <script>
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const msg = document.getElementById('message');
-
-      if (name && email) {
-        msg.style.color = '#0f0';
-        msg.textContent = `Спасибо, ${name}! Я свяжусь с вами по ${email}.`;
-        this.reset();
-      } else {
-        msg.style.color = 'red';
-        msg.textContent = 'Пожалуйста, заполните все поля.';
-      }
-    });
-  </script>
+    <footer>
+        <p>© MaxxTheLightning | Все права защищены</p>
+    </footer>
 </body>
 </html>
