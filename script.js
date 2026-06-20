@@ -76,6 +76,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         miniPlayer.classList.add('expanded');
 
+        drawVisualizer();
+
         setTimeout(() => {
             updateMiniPlayerProgress(playerSlider.value);
         }, 0);
