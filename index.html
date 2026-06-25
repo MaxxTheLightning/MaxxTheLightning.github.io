@@ -13,7 +13,19 @@
         
         <!-- Вкладка: Голосование -->
         <section id="tab-voting" class="tab-content active">
-            <iframe src="https://yandex.ru" frameborder="0" name="ya-form"></iframe>
+            <div id="voting-container" class="voting-container">
+                
+            </div>
+            <div class="vote-card favorite-track-card">
+                <div class="vote-card-title">
+                  Выберите трек, который Вам понравился больше всего:
+                </div>
+              
+                <select id="favoriteTrackSelect" class="favorite-track-select">
+                  <!-- опции будут добавляться через JS -->
+                </select>
+            </div>
+            <button id="submit-votes" class="submit-btn">Отправить</button>
         </section>
 
         <!-- Вкладка: Треки -->
@@ -35,6 +47,11 @@
     <div id="mini-player" class="mini-player">
         <!-- Кнопка закрытия/сворачивания (видна только на полном экране) -->
         <button id="player-close" class="player-close-btn">&times;</button>
+
+        <div class="extra-info">
+            <div id="player-country" class="player-country"></div>
+            <div id="player-person" class="player-person"></div>
+        </div>
 
         <img id="mini-player-cover" src="" alt="Обложка" class="mini-cover">
         
