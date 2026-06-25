@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let source;
     let dataArray;
     let bufferLength;
+    let tracksToRender;
 
     const navButtons = document.querySelectorAll('.nav-btn');
     const tabs = document.querySelectorAll('.tab-content');
@@ -57,6 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 loadTracks();
             } else if (targetTab === 'tab-clips') {
                 loadClips();
+            }
+            else if (targetTab === 'tab-voting') {
+                loadVoting();
             }
         });
     });
@@ -215,6 +219,56 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    function loadVoting() {
+        const container = document.getElementById('voting-container');
+        const favoriteSelect = document.getElementById("favoriteTrackSelect");
+        favoriteSelect.innerHTML = "";
+        container.innerHTML = '';
+    
+        tracks.forEach((track, index) => {
+            const option = document.createElement("option");
+            option.value = track.track_name;
+
+            option.textContent = `${track.author} - ${track.track_name}`;
+
+            favoriteSelect.appendChild(option);
+
+            const card = document.createElement('div');
+            card.className = 'vote-card';
+    
+            card.innerHTML = `
+                <div class="vote-title">
+                    <img src="${track.flag_dir}" class="vote-flag">
+                    ${track.author} — ${track.track_name}
+                </div>
+
+                <input 
+                    type="range" 
+                    min="1" 
+                    max="10" 
+                    step="1" 
+                    value="5"
+                    class="vote-slider"
+                    data-index="${index}"
+                >
+
+                <div class="vote-footer">
+                    <div class="vote-person">${track.person}</div>
+                    <div class="vote-value">Оценка: <span>5</span></div>
+                </div>
+            `;
+    
+            const slider = card.querySelector('.vote-slider');
+            const valueText = card.querySelector('.vote-value span');
+    
+            slider.addEventListener('input', () => {
+                valueText.textContent = slider.value;
+            });
+    
+            container.appendChild(card);
+        });
+    }
+
     // Парсинг треков
     async function loadTracks() {
         const container = document.getElementById('tracks-list');
@@ -224,10 +278,50 @@ document.addEventListener('DOMContentLoaded', () => {
             //const response = await fetch('data.json');
             //const data = await response.json();
             container.innerHTML = '';
+            const hasResults = tracks.some(track => track.points > 0);
+            
+            let currentPlace = 1;
+        
+            tracksToRender = [...tracks];
 
-            tracks.forEach((track, index) => {
+            if (hasResults) {
+              tracksToRender.sort((a, b) => b.points - a.points);
+            }
+
+            tracksToRender.forEach((track, index) => {
+                
+                if (!hasResults) {
+                  track.place = null;
+                  return;
+                }
+            
+                if (index === 0) {
+                  track.place = 1;
+                } else {
+                  const prevTrack = tracksToRender[index - 1];
+            
+                  if (track.points === prevTrack.points) {
+                    // одинаковые очки → то же место
+                    track.place = prevTrack.place;
+                  } else {
+                    // разные очки → увеличиваем место на 1
+                    currentPlace++;
+                    track.place = currentPlace;
+                  }
+                }
+
                 const item = document.createElement('div');
                 item.className = 'media-item';
+                if (track.place === 1) {
+                    item.classList.add("first-place");
+                }
+                else if (track.place === 2) {
+                    item.classList.add("second-place");
+                }
+                else if (track.place === 3) {
+                    item.classList.add("third-place");
+                }
+                
                 item.setAttribute('data-dir', track.track_dir);
                 
                 if (audioPlayer.src.includes(encodeURIComponent(track.track_dir)) && !audioPlayer.paused) {
@@ -235,12 +329,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 item.innerHTML = `
-                    <img src="${track.track_cover_dir}" alt="Обложка" class="cover-art">
+                  ${hasResults ? `<div class="track-place">${track.place}</div>` : ""}
+
+                  <img src="${track.track_cover_dir}" class="cover-art">
+
+                  <img src="${track.flag_dir}" class="track-flag">
+
+                  <div class="media-info">
+                    <div class="media-title">${track.track_name}</div>
+                    <div class="media-author">${track.author}</div>
+                  </div>
+
+                  ${hasResults ? `<div class="track-points">${track.points}</div>` : ""}
+                `;
+                /*`
+                    <img src="${track.track_cover_dir}" class="cover-art">
+
+                    <img src="${track.flag_dir}" class="track-flag">
+
                     <div class="media-info">
                         <div class="media-title">${track.track_name}</div>
                         <div class="media-author">${track.author}</div>
                     </div>
-                `;
+                `;*/
 
                 item.addEventListener('click', () => {
                     const isCurrentTrack = audioPlayer.src.includes(encodeURIComponent(track.track_dir));
@@ -333,7 +444,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const items = document.querySelectorAll('.media-item');
         
         items.forEach((item, index) => {
-            console.log("here");
             item.classList.toggle('active', index === currentTrackIndex);
         });
     }
@@ -358,7 +468,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function playTrack(index) {
-        const track = tracks[index];
+        const playerCountry = document.getElementById('player-country');
+        const playerPerson = document.getElementById('player-person');
+        const track = tracksToRender[index];
+        
+        playerCountry.innerHTML = `
+            <img src="${track.flag_dir}" class="player-flag">
+            ${track.country}
+        `;
+
+        playerPerson.textContent = `Участник: ${track.person}`;
     
         audioPlayer.src = track.track_dir;
         miniTitle.textContent = track.track_name;
